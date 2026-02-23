@@ -276,3 +276,49 @@ class Address(models.Model):
 
     class Meta:
         db_table = "b_address"
+
+
+class CommunityPost(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    title = models.CharField(max_length=100, blank=True, null=True)
+    content = models.TextField(max_length=2000, blank=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='user_community_post')
+    create_time = models.DateTimeField(auto_now_add=True, null=True)
+    views = models.IntegerField(default=0)
+    like_count = models.IntegerField(default=0)
+    liked_users = models.ManyToManyField(User, related_name='liked_posts', blank=True)
+
+    class Meta:
+        db_table = "b_community_post"
+
+
+class ReadingEvent(models.Model):
+    STATUS_CHOICES = (
+        ('0', '未开始'),
+        ('1', '进行中'),
+        ('2', '已结束'),
+    )
+    id = models.BigAutoField(primary_key=True)
+    title = models.CharField(max_length=100, blank=True, null=True)
+    description = models.TextField(max_length=2000, blank=True, null=True)
+    cover = models.ImageField(upload_to='event/', null=True)
+    start_time = models.DateTimeField(null=True)
+    end_time = models.DateTimeField(null=True)
+    create_time = models.DateTimeField(auto_now_add=True, null=True)
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES, default='0')
+
+    class Meta:
+        db_table = "b_reading_event"
+
+
+class CommunityComment(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    content = models.CharField(max_length=500, blank=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='user_community_comment')
+    post = models.ForeignKey(CommunityPost, on_delete=models.CASCADE, null=True, blank=True, related_name='post_comment')
+    event = models.ForeignKey(ReadingEvent, on_delete=models.CASCADE, null=True, blank=True, related_name='event_comment')
+    create_time = models.DateTimeField(auto_now_add=True, null=True)
+    like_count = models.IntegerField(default=0)
+
+    class Meta:
+        db_table = "b_community_comment"

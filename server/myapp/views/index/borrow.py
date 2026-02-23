@@ -16,7 +16,7 @@ def list_api(request):
         borrowStatus = request.GET.get('borrowStatus', '')
 
         borrows = Borrow.objects.all().filter(user=userId).filter(status__contains=borrowStatus).order_by('-borrow_time')
-        serializer = BorrowSerializer(borrows, many=True)
+        serializer = BorrowSerializer(borrows, many=True, context={'request': request})
         return APIResponse(code=0, msg='查询成功', data=serializer.data)
 
 

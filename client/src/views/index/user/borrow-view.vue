@@ -35,7 +35,6 @@
         <div class="content flex-view">
           <div class="left-list">
             <div class="list-item flex-view">
-              <meta name="referrer" content="never">
               <img :src="item.cover" class="book-img">
               <div class="detail flex-between flex-view">
                 <div class="flex-between flex-top flex-view">

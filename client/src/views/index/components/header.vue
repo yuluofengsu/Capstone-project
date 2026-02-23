@@ -8,6 +8,7 @@
       <input placeholder="输入关键词" ref="keyword" @keyup.enter="search" />
     </div>
     <div class="right-view">
+      <a @click="$router.push({name:'postList'})" type="a-link" style="line-height: 32px;width:60px;margin-right:20px;cursor:pointer;color:#464646;">社区中心</a>
       <a href="/#/admin" target="__black" type="a-link" style="line-height: 32px;width:60px;">后台入口</a>
       <template v-if="$store.state.user.username">
         <a-dropdown>

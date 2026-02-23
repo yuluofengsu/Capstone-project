@@ -233,7 +233,6 @@
             <div class="books">
               <div class="book-item book-item" v-for="item in recommendData" @click="handleDetail(item)">
                 <div class="img-view">
-                  <meta name="referrer" content="never">
                   <img :src="item.cover">
                 </div>
                 <div class="info-view">

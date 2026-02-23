@@ -1,6 +1,7 @@
 from django.urls import path
 
 from myapp import views
+import myapp.views.admin.event
 
 app_name = 'myapp'
 urlpatterns = [
@@ -16,6 +17,11 @@ urlpatterns = [
     path('admin/comment/create', views.admin.comment.create),
     path('admin/comment/update', views.admin.comment.update),
     path('admin/comment/delete', views.admin.comment.delete),
+
+    path('admin/event/list', views.admin.event.list_api),
+    path('admin/event/create', views.admin.event.create),
+    path('admin/event/update', views.admin.event.update),
+    path('admin/event/delete', views.admin.event.delete),
     path('admin/classification/list', views.admin.classification.list_api),
     path('admin/classification/create', views.admin.classification.create),
     path('admin/classification/update', views.admin.classification.update),
@@ -92,7 +98,20 @@ urlpatterns = [
     path('index/borrow/delay', views.index.borrow.delay),
     path('index/address/list', views.index.address.list_api),
     path('index/address/create', views.index.address.create),
+    path('index/image/proxy', views.index.image_proxy),
     path('index/address/update', views.index.address.update),
     path('index/address/delete', views.index.address.delete),
+
+    # 社区功能api
+    path('index/community/post/list', views.index.community.post_list),
+    path('index/community/post/create', views.index.community.post_create),
+    path('index/community/post/detail', views.index.community.post_detail),
+    path('index/community/post/delete', views.index.community.post_delete),
+    path('index/community/post/like', views.index.community.post_like),
+    path('index/community/event/list', views.index.community.event_list),
+    path('index/community/event/detail', views.index.community.event_detail),
+    path('index/community/comment/list', views.index.community.comment_list),
+    path('index/community/comment/create', views.index.community.comment_create),
+    path('index/community/comment/delete', views.index.community.comment_delete),
 
 ]

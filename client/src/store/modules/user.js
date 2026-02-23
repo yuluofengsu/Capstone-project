@@ -7,13 +7,13 @@ const user = {
   namespaced: false,
   state: {
     /** 前台字段 **/
-    token: '',
-    username: '',
-    userId: '',
+    token: storage.get(TOKEN) || '',
+    username: storage.get(USERNAME) || '',
+    userId: storage.get(USERID) || '',
 
     /** 管理员字段**/
-    adminToken: '',
-    adminUserName: ''
+    adminToken: storage.get(ADMIN_TOKEN) || '',
+    adminUserName: storage.get(ADMIN_USERNAME) || ''
   },
   getters: {
     token: state => state.token,

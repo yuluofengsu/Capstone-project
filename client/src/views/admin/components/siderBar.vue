@@ -80,7 +80,25 @@ export default {
         },
         {
           key: '/admin/comment',
-          title: '评论管理'
+          title: '评论管理',
+          children: [
+            {
+              key: '/admin/comment/book',
+              title: '图书评论'
+            },
+            {
+              key: '/admin/comment/post',
+              title: '帖子评论'
+            },
+            {
+              key: '/admin/comment/event',
+              title: '活动评论'
+            }
+          ]
+        },
+        {
+          key: '/admin/event',
+          title: '活动管理'
         },
         {
           key: '/admin/user',

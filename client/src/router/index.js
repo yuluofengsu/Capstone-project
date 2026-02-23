@@ -119,6 +119,31 @@ const constantRouterMap = [
             component: () => import('@/views/index/user/message-view')
           },
         ]
+      },
+      {
+        path: 'community/post/list',
+        name: 'postList',
+        component: () => import('@/views/index/community/post-list')
+      },
+      {
+        path: 'community/post/create',
+        name: 'postCreate',
+        component: () => import('@/views/index/community/post-create')
+      },
+      {
+        path: 'community/post/detail',
+        name: 'postDetail',
+        component: () => import('@/views/index/community/post-detail')
+      },
+      {
+        path: 'community/event/list',
+        name: 'eventList',
+        component: () => import('@/views/index/community/event-list')
+      },
+      {
+        path: 'community/event/detail',
+        name: 'eventDetail',
+        component: () => import('@/views/index/community/event-detail')
       }
     ]
   },
@@ -183,6 +208,29 @@ const constantRouterMap = [
         path: 'comment',
         name: 'comment',
         component: () => import('@/views/admin/comment')
+      },
+      {
+        path: 'comment/book',
+        name: 'commentBook',
+        component: () => import('@/views/admin/comment'),
+        meta: { type: 'book' }
+      },
+      {
+        path: 'comment/post',
+        name: 'commentPost',
+        component: () => import('@/views/admin/comment'),
+        meta: { type: 'post' }
+      },
+      {
+        path: 'comment/event',
+        name: 'commentEvent',
+        component: () => import('@/views/admin/comment'),
+        meta: { type: 'event' }
+      },
+      {
+        path: 'event',
+        name: 'event',
+        component: () => import('@/views/admin/event')
       },
       {
         path: 'borrow',

@@ -11,16 +11,24 @@ const request = axios.create({
 })
 
 // 异常拦截处理器
+let isReloginShow = false
+
 const errorHandler = (error) => {
   if (error.response) {
     const data = error.response.data
     console.log(data)
     // 从 localstorage 获取 token
     if (error.response.status === 403) {
-      notification.error({
-        message: '未登录',
-        description: '登录验证失败'
-      })
+      if (!isReloginShow) {
+        isReloginShow = true
+        notification.error({
+          message: '未登录',
+          description: '登录验证失败',
+          onClose: () => {
+            isReloginShow = false
+          }
+        })
+      }
 
       // 后台认证失败
       if (data.detail === 'AUTH_FAIL_END') {

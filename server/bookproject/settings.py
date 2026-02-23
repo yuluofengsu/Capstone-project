@@ -78,12 +78,13 @@ WSGI_APPLICATION = 'bookproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'book',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': 'hws03946498077',
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {

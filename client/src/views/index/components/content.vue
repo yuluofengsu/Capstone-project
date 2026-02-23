@@ -46,7 +46,6 @@
           <div v-for="item in pageData" :key="item.id" @click="handleDetail(item)" class="book-item item-column-3">
             <!---->
             <div class="img-view">
-              <meta name="referrer" content="never">
               <img :src="item.cover"></div>
             <!--            <img :src="'https://img3.doubanio.com/view/subject/s/public/s34823157.jpg'"></div>-->
             <div class="info-view"><h3 class="book-name">{{ item.title }}</h3>

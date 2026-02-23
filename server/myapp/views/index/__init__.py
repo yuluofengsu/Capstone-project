@@ -6,3 +6,5 @@ from myapp.views.index.comment import *
 from myapp.views.index.borrow import *
 from myapp.views.index.notice import *
 from myapp.views.index.address import *
+from myapp.views.index.community import *
+from myapp.views.index.image_proxy import *

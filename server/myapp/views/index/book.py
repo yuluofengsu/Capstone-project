@@ -63,7 +63,7 @@ def list_api(request):
                 books = Book.objects.all().defer('wish').order_by(order)
 
         # 序列化图书数据
-        serializer = ListBookSerializer(books, many=True)
+        serializer = ListBookSerializer(books, many=True, context={'request': request})
         return APIResponse(code=0, msg='查询成功', data=serializer.data)
 
 
@@ -82,7 +82,7 @@ def detail(request):
         return APIResponse(code=1, msg='对象不存在')
 
     if request.method == 'GET':
-        serializer = BookSerializer(book)
+        serializer = BookSerializer(book, context={'request': request})
         return APIResponse(code=0, msg='查询成功', data=serializer.data)
 
 

@@ -53,7 +53,7 @@ const columns = [
     align: 'center'
   },
   {
-    title: '书名',
+    title: '标题',
     dataIndex: 'title',
     key: 'title',
     align: 'center'
@@ -95,13 +95,21 @@ export default {
   methods: {
     getList () {
       this.loading = true
-      listApi().then(res => {
+      // Get type from route meta, default to 'all' (though routes should have it)
+      // If accessed via /admin/comment directly, it might be undefined, so default to 'all' or 'book'
+      // But the sidebar now points to specific sub-routes.
+      // The parent route /admin/comment might still be accessible.
+      const type = this.$route.meta.type || 'all'
+      
+      listApi({ type: type }).then(res => {
         this.loading = false
         res.data.forEach((item, index) => {
           item.index = index + 1
         })
         this.data = res.data
-        console.log(res)
+      }).catch(err => {
+        this.loading = false
+        console.log(err)
       })
     },
     rowSelection () {
@@ -172,6 +180,13 @@ export default {
           })
         }
       })
+    }
+  },
+  watch: {
+    '$route': function (to, from) {
+      if (to.name !== from.name) {
+        this.getList()
+      }
     }
   },
   mounted () {

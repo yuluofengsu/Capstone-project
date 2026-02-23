@@ -4,6 +4,7 @@
     <span class="header-title">图书后台管理系统</span>
     <div class="empty"></div>
     <span>管理员[{{$store.state.user.adminUserName}}]</span>
+    <a class="header-link" @click="$router.push('/')">前台首页</a>
     <a class="header-quit" @click="handleLogout">退出</a>
   </div>
 </template>
@@ -55,6 +56,9 @@ export default {
   }
 
   .header-quit {
+    margin-left: 12px;
+  }
+  .header-link {
     margin-left: 12px;
   }
 }

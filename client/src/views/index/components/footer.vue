@@ -11,7 +11,6 @@
       </span>
       <span>&nbsp;&nbsp;京公网安备123456&nbsp;&nbsp;新出发京零字第东123456号&nbsp;&nbsp;统一社会信用代码 123456789</span>
     </div>
-    <div class="address"><a href="http://www.python222.com/post/10" target='_blank'><font color=red>Python222收藏整理</font></a></div>
   </div>
 </template>
 
