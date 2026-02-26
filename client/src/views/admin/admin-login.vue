@@ -47,7 +47,6 @@
             </a-form-model-item>
           </a-form-model>
           <div class="error-tip">{{ loginError }}</div>
-          <a href="http://www.python222.com/post/10" target='_blank'><font color=red>Python222收藏整理</font></a>
         </div>
       </div>
 

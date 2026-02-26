@@ -37,7 +37,6 @@
         <a class="forget-pwd" style="text-align: right;">忘记密码？</a>
       </div>
       <div style="margin: 10px">
-         <a href="http://www.python222.com/post/10" target='_blank'><font color=red>Python222收藏整理</font></a>
       </div>
     </div>
   </div>
